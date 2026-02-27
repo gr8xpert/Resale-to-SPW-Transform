@@ -1,0 +1,27 @@
+# Cache directory
+/cache/*
+!/cache/.gitkeep
+
+# Environment files
+.env
+.env.local
+
+# Local config override
+config/config.local.php
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Debug files (temporary)
+debug*.php
+test*.php
+clear-cache.php
+clear-label-cache.php

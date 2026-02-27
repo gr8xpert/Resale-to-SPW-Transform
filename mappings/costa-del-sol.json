@@ -1,0 +1,302 @@
+{
+    "_comment": "Costa del Sol municipality mappings - City name => Municipality name",
+    "_area": "Costa del Sol",
+
+    "Marbella": {
+        "municipality": "Marbella",
+        "cities": [
+            "Marbella",
+            "Puerto Banús",
+            "San Pedro de Alcántara",
+            "Nueva Andalucía",
+            "The Golden Mile",
+            "Golden Mile",
+            "Nagüeles",
+            "Sierra Blanca",
+            "Elviria",
+            "Las Chapas",
+            "Hacienda Las Chapas",
+            "Bahía de Marbella",
+            "Los Monteros",
+            "Altos de los Monteros",
+            "Río Real",
+            "Cabopino",
+            "Puerto de Cabopino",
+            "Artola",
+            "Marbesa",
+            "Costabella",
+            "Reserva de Marbella",
+            "Guadalmina Alta",
+            "Guadalmina Baja",
+            "Cortijo Blanco",
+            "Linda Vista",
+            "Las Brisas",
+            "Aloha",
+            "La Campana",
+            "El Rosario",
+            "Carib Playa",
+            "El Pinillo",
+            "La Mairena",
+            "Santa Clara"
+        ]
+    },
+
+    "Estepona": {
+        "municipality": "Estepona",
+        "cities": [
+            "Estepona",
+            "New Golden Mile",
+            "El Paraiso",
+            "Cancelada",
+            "Selwo",
+            "Atalaya",
+            "Benamara",
+            "Costalita",
+            "El Padron",
+            "Valle Romano",
+            "Diana Park",
+            "El Presidente",
+            "Buenas Noches",
+            "Arroyo Vaquero",
+            "Bahia Dorada",
+            "El Campanario",
+            "Seghers"
+        ]
+    },
+
+    "Benahavís": {
+        "municipality": "Benahavís",
+        "cities": [
+            "Benahavís",
+            "La Quinta",
+            "La Zagaleta",
+            "Los Arqueros",
+            "El Madroñal",
+            "La Heredia",
+            "Monte Halcones",
+            "Los Flamingos",
+            "Montemayor",
+            "Marbella Club Golf",
+            "Capanes Sur"
+        ]
+    },
+
+    "Mijas": {
+        "municipality": "Mijas",
+        "cities": [
+            "Mijas",
+            "Mijas Costa",
+            "Mijas Golf",
+            "La Cala de Mijas",
+            "La Cala",
+            "La Cala Golf",
+            "La Cala Hills",
+            "Riviera del Sol",
+            "Calahonda",
+            "Calanova Golf",
+            "El Faro",
+            "El Chaparral",
+            "La Sierrezuela",
+            "Sierrezuela",
+            "Campo Mijas",
+            "El Coto",
+            "Cerros del Aguila",
+            "Miraflores",
+            "Torrenueva",
+            "Sitio de Calahonda",
+            "Entrerrios",
+            "Las Lagunas",
+            "La Capellania",
+            "Valtocado"
+        ]
+    },
+
+    "Fuengirola": {
+        "municipality": "Fuengirola",
+        "cities": [
+            "Fuengirola",
+            "Los Boliches",
+            "Los Pacos",
+            "Torreblanca",
+            "Carvajal",
+            "El Higueron",
+            "Higueron"
+        ]
+    },
+
+    "Benalmádena": {
+        "municipality": "Benalmádena",
+        "cities": [
+            "Benalmadena",
+            "Benalmadena Costa",
+            "Benalmadena Pueblo",
+            "Arroyo de la Miel",
+            "Torrequebrada",
+            "Torremuelle",
+            "Bil Bil",
+            "Carvajal",
+            "Montemar"
+        ]
+    },
+
+    "Torremolinos": {
+        "municipality": "Torremolinos",
+        "cities": [
+            "Torremolinos",
+            "Torremolinos Centro",
+            "La Carihuela",
+            "Playamar",
+            "Montemar",
+            "El Pinillo",
+            "Los Alamos"
+        ]
+    },
+
+    "Málaga": {
+        "municipality": "Málaga",
+        "cities": [
+            "Málaga",
+            "Málaga Centro",
+            "Málaga Este",
+            "Puerto de la Torre",
+            "Teatinos",
+            "El Palo",
+            "Pedregalejo",
+            "El Limonar",
+            "Churriana"
+        ]
+    },
+
+    "Casares": {
+        "municipality": "Casares",
+        "cities": [
+            "Casares",
+            "Casares Playa",
+            "Casares Pueblo",
+            "Casares Costa",
+            "Doña Julia",
+            "Finca Cortesin"
+        ]
+    },
+
+    "Manilva": {
+        "municipality": "Manilva",
+        "cities": [
+            "Manilva",
+            "La Duquesa",
+            "San Luis de Sabinillas",
+            "Punta Chullera",
+            "Castillo de la Duquesa"
+        ]
+    },
+
+    "San Roque": {
+        "municipality": "San Roque",
+        "cities": [
+            "San Roque",
+            "Sotogrande",
+            "Sotogrande Alto",
+            "Sotogrande Costa",
+            "Sotogrande Marina",
+            "Sotogrande Puerto",
+            "San Roque Club",
+            "La Alcaidesa",
+            "Torreguadiaro",
+            "Guadiaro",
+            "Pueblo Nuevo de Guadiaro",
+            "San Enrique",
+            "San Diego"
+        ]
+    },
+
+    "Ojén": {
+        "municipality": "Ojén",
+        "cities": [
+            "Ojén",
+            "La Mairena"
+        ]
+    },
+
+    "Istán": {
+        "municipality": "Istán",
+        "cities": [
+            "Istán",
+            "Sierra Blanca Country Club"
+        ]
+    },
+
+    "Coín": {
+        "municipality": "Coín",
+        "cities": [
+            "Coín",
+            "Lauro Golf"
+        ]
+    },
+
+    "Alhaurín el Grande": {
+        "municipality": "Alhaurín el Grande",
+        "cities": [
+            "Alhaurín el Grande",
+            "Alhaurin Golf"
+        ]
+    },
+
+    "Alhaurín de la Torre": {
+        "municipality": "Alhaurín de la Torre",
+        "cities": [
+            "Alhaurín de la Torre"
+        ]
+    },
+
+    "Cártama": {
+        "municipality": "Cártama",
+        "cities": [
+            "Cártama",
+            "Estacion de Cartama"
+        ]
+    },
+
+    "Ronda": {
+        "municipality": "Ronda",
+        "cities": [
+            "Ronda",
+            "Arriate",
+            "Benaoján",
+            "Montejaque"
+        ]
+    },
+
+    "Gaucín": {
+        "municipality": "Gaucín",
+        "cities": [
+            "Gaucín",
+            "Estación de Gaucin"
+        ]
+    },
+
+    "Los Barrios": {
+        "municipality": "Los Barrios",
+        "cities": [
+            "Los Barrios",
+            "San Martín de Tesorillo"
+        ]
+    },
+
+    "La Línea": {
+        "municipality": "La Línea de la Concepción",
+        "cities": [
+            "La Línea",
+            "Alcaidesa"
+        ]
+    },
+
+    "Antequera": {
+        "municipality": "Antequera",
+        "cities": [
+            "Antequera",
+            "Mollina",
+            "Fuente de Piedra",
+            "Villanueva De La Concepcion"
+        ]
+    }
+}
