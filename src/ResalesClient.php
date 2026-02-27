@@ -51,6 +51,22 @@ class ResalesClient
     }
 
     /**
+     * Get the current client ID.
+     */
+    public function getClientId(): string
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * Get the current filter ID.
+     */
+    public function getFilterId(): string
+    {
+        return $this->filterId;
+    }
+
+    /**
      * Get property types.
      */
     public function getPropertyTypes(): ?array

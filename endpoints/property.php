@@ -4,10 +4,62 @@
  * Property search endpoint - GET /v1/property
  *
  * Searches properties from Resales Online and transforms to widget format.
- * Variables available from index.php: $resalesClient, $laravelClient, $domain, $language, $agencyCode
+ * Variables available from index.php: $resalesClient, $laravelClient, $domain, $language, $agencyCode, $cache
  */
 
 use SpwTransform\PropertyTransformer;
+use SpwTransform\LocationTransformer;
+use SpwTransform\MunicipalityExtractor;
+
+/**
+ * Look up location name by our generated ID.
+ * Returns the location name or null if not found.
+ */
+function lookupLocationName(string $locationId, $resalesClient, $cache): ?string
+{
+    // Get cached location map (ID => name)
+    $cacheKey = 'location_id_map_' . $resalesClient->getClientId();
+    $idMap = $cache->get($cacheKey);
+
+    if ($idMap === null) {
+        // Build the ID map from locations
+        $resalesData = $resalesClient->getLocations();
+        if (!$resalesData) {
+            return null;
+        }
+
+        // Get municipality mapping
+        global $domain;
+        $municipalityExtractor = new MunicipalityExtractor($resalesClient, $cache, $domain);
+        $areaNames = [];
+        $locationData = $resalesData['LocationData'] ?? [];
+        $provinceAreas = $locationData['ProvinceArea'] ?? [];
+        if (isset($provinceAreas['ProvinceAreaName'])) {
+            $provinceAreas = [$provinceAreas];
+        }
+        foreach ($provinceAreas as $area) {
+            if (!empty($area['ProvinceAreaName'])) {
+                $areaNames[] = $area['ProvinceAreaName'];
+            }
+        }
+        $municipalityMap = $municipalityExtractor->getAllMunicipalityMaps($areaNames);
+
+        // Transform to get all locations with IDs
+        $transformer = new LocationTransformer();
+        $result = $transformer->transform($resalesData, $municipalityMap);
+
+        // Build reverse map: ID => name
+        $idMap = [];
+        foreach ($result['data'] as $loc) {
+            $idMap[(string) $loc['id']] = $loc['name'];
+        }
+
+        // Cache for 24 hours
+        $cache->set($cacheKey, $idMap, 86400);
+    }
+
+    return $idMap[$locationId] ?? null;
+}
 
 // Build search parameters from query string
 $searchParams = [];
@@ -18,14 +70,36 @@ $limit = (int) ($_GET['_limit'] ?? $_GET['limit'] ?? 12);
 $searchParams['P_PageNo'] = max(1, $page);
 $searchParams['P_PageSize'] = min(100, max(1, $limit));
 
-// Property type filter
+// Property type filter - accepts ID or name
 if (!empty($_GET['type_id'])) {
-    $searchParams['P_PropertyTypes'] = $_GET['type_id'];
+    $typeId = $_GET['type_id'];
+    // If it looks like our generated ID (numeric), try to get the name
+    // Otherwise pass through (could be a name or Resales ID)
+    $searchParams['P_PropertyTypes'] = $typeId;
 }
 
-// Location filter
+// Location filter - Resales API expects location NAME, not ID
+// Widget may send: location_id=25965 (our ID) or location_id=Marbella (name)
 if (!empty($_GET['location_id'])) {
-    $searchParams['P_Location'] = $_GET['location_id'];
+    $locationId = $_GET['location_id'];
+
+    // If numeric (our generated ID), we need to look up the location name
+    // For now, also accept location names directly
+    if (is_numeric($locationId)) {
+        // Try to find location name from cached locations
+        $locationName = lookupLocationName($locationId, $resalesClient, $cache);
+        if ($locationName) {
+            $searchParams['P_Location'] = $locationName;
+        }
+    } else {
+        // Assume it's already a location name
+        $searchParams['P_Location'] = $locationId;
+    }
+}
+
+// Also accept 'location' parameter as name directly
+if (!empty($_GET['location']) && empty($searchParams['P_Location'])) {
+    $searchParams['P_Location'] = $_GET['location'];
 }
 
 // Bedrooms filter
